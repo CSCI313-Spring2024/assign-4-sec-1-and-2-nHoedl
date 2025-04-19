@@ -1,0 +1,17 @@
+<h1 style="font-weight: bold; text-align: center;">All Contacts!</h1>
+<div class="mt-3">
+    <div class="row">
+      @for(contact of contacts; track contact){
+      <div class="col-md-4 my-2 mx-0">
+        <div class="card text-bg-info p-5">
+          <h3 class="card-title">{{contact.firstName}} {{contact.lastName}}</h3>
+          <p>Phone Number: {{contact.phoneNumber}}</p>
+          <p>Email: {{contact.email}}</p>
+          <button><a [routerLink]="['updateContact', contact.id]">Update Contact Details</a></button><br>
+          <button (click) = delete(contact.id)>Delete Contact</button>
+        </div>
+      </div>
+    }
+    </div>
+  </div>
+  <button><a routerLink = "addContact">Add a contact!</a></button>
