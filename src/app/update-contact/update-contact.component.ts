@@ -9,21 +9,18 @@ import { Router } from '@angular/router';
   selector: 'app-update-contact',
   imports: [FormsModule],
   templateUrl: './update-contact.component.html',
-  styleUrl: './update-contact.component.css'
+  styleUrl: './update-contact.component.css',
 })
 export class UpdateContactComponent {
   id = input.required<number>();
   dataService = inject(DataService);
   contacts: Contact[] = Contacts;
-  tempContact!: Contact
-  constructor(private router:Router){}
-ngOnInit(){
-  this.tempContact = this.dataService.getContactById(this.id());
-}
-  saveContact(){
-    this.router.navigate([""]);
+  tempContact!: Contact;
+  constructor(private router: Router) {}
+  ngOnInit() {
+    this.tempContact = this.dataService.getContactById(this.id());
   }
-
-
-
+  saveContact() {
+    this.router.navigate(['']);
+  }
 }

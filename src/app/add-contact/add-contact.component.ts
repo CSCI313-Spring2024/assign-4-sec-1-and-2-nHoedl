@@ -9,38 +9,38 @@ import { Contacts } from '../data/contact-data';
   selector: 'app-add-contact',
   imports: [FormsModule],
   templateUrl: './add-contact.component.html',
-  styleUrl: './add-contact.component.css'
+  styleUrl: './add-contact.component.css',
 })
 export class AddContactComponent {
   contacts: Contact[] = Contacts;
-  dataService = inject(DataService)
-  constructor(private router:Router){}
+  dataService = inject(DataService);
+  constructor(private router: Router) {}
 
-    newContact: Contact = {
+  newContact: Contact = {
     id: 0,
     firstName: 'First Name',
     lastName: 'Last Name',
     email: 'Email@gmail.com',
-    phoneNumber: '555-123-4567'
+    phoneNumber: '555-123-4567',
   };
 
   addContact() {
     this.newContact.id = this.dataService.getContactSize();
-  
+
     this.contacts.push({ ...this.newContact });
-  
+
     console.log(this.newContact);
-  
+
     // Reset the form
     this.newContact = {
       id: 0,
       firstName: '',
       lastName: '',
       email: '',
-      phoneNumber: ''
+      phoneNumber: '',
     };
-  
+
     // Navigate back
-    this.router.navigate([""]);
+    this.router.navigate(['']);
   }
 }
